@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前沿技术情报检索 Agent</title>
+    <!-- 使用 Google Font 提升字体质感 -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- 右侧竖排状态 -->
+    <div class="side-status">
+        <span>●</span>
+        <span class="line"></span>
+        <span>AI</span>
+        <span>实时</span>
+        <span>多模态</span>
+        <span class="line"></span>
+        <span>●</span>
+    </div>
+
+    <!-- 左侧底部版权/版本 -->
+    <div class="side-status-left">
+        <span>⚡ Agent v2.0 · 数据源自 arXiv · GitHub · HuggingFace</span>
+    </div>
+    <div class="app-container">
+        <header class="hero">
+            <div class="hero-content">
+                <div class="logo-badge">🚀 AI 前沿追踪</div>
+                <h1>技术情报检索 Agent</h1>
+                <p class="subtitle">实时追踪 arXiv · GitHub · Hugging Face 多模态大模型最新动态</p >
+                <div class="time-displayer">
+                    <span id="current-time">⏱️ 加载中...</span>
+                </div>
+                <button id="fetchBtn" class="btn-primary">
+                    <span class="btn-icon">📡</span> 获取最新趋势
+                </button>
+            </div>
+            <div class="hero-glow"></div>
+        </header>
+
+        <!-- 加载状态 -->
+        <div id="loading" class="loading-state" style="display:none;">
+            <div class="spinner"></div>
+            <p>正在从全球开源社区抓取数据...</p >
+        </div>
+
+        <!-- 趋势列表 -->
+        <section id="trendsSection" class="card-section" style="display:none;">
+            <div class="section-header">
+                <h2>📊 最新技术动态</h2>
+                <div style="display:flex; gap:12px; align-items:center;">
+                    <span class="badge" id="trendCount">0 条</span>
+                    <button id="refreshBtn" class="btn-secondary" style="display:none;">🔄 换一批</button>
+                </div>
+            </div>
+            <div id="trendsList" class="trends-grid"></div>
+        </section>
+
+        <!-- 提示词参数 -->
+        <section id="promptSection" class="card-section" style="display:none;">
+            <div class="section-header">
+                <h2>🎨 自动生成的提示词参数</h2>
+                <span class="badge">适配「用图说AI」API</span>
+            </div>
+            <div id="promptParams" class="params-card"></div>
+        </section>
+
+        <footer class="footer">
+            <p>⚡ 由 Agent 自动构建 · 数据实时更新</p >
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
